@@ -1,21 +1,31 @@
 <?php
 
-    # database variables; DATABASE --> $host, $name, $user, $password
-    $host = "localhost";
-    $dbname = "cleanblog";
-    $user = "root";
-    $pass = "";
+    try{
 
-    #connection variable
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+        # $pdo = new PDO('mysql:host=localhost;dbname=teste', 'root', '');
+        # database variables; DATABASE --> $host, $name, $user, $password
 
-    #check connection
-    if ($conn == true){
+        $host = "localhost";
+        $dbname = "cleanblog";
+        $user = "root";
+        $pass = "";
 
-        echo "<h1>Connected!</h1>";
-    }else{
+        #connection variable
+        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        echo "<h1>Connection ERROR!!!</h1>";
+    }catch(PDOException $e){
+
+        echo $e->getMessage();
     }
+
+        #check connection
+        if ($conn == true){
+
+            echo "<h1>Connected!</h1>";
+        }else{
+
+            echo "<h1>Connection ERROR!!!</h1>";
+        }
 
     ?>
