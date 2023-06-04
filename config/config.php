@@ -22,7 +22,7 @@
         #check connection
         if ($conn == true){
 
-            echo "<h1>Connected!</h1>";
+            # echo "<h1>Connected!</h1>";
         }else{
 
             echo "<h1>Connection ERROR!!!</h1>";
